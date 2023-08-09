@@ -1,8 +1,8 @@
 # Advocacia_Beckhauser
 
-<h1> O Sistema será desenvolvida em prol da Mendes Beckhauser Advocacia e Consultoria </h1>  
+<h2> O Sistema será desenvolvida em prol da Mendes Beckhauser Advocacia e Consultoria </h2>  
 
-<h2>As funcionalidades do sistema serão: </h2> 
+<h3>As funcionalidades do sistema serão: </h3> 
 
 <ul>
         <li>Administrar agendas</li>
