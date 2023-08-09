@@ -1,13 +1,15 @@
 # Advocacia_Beckhauser
 
-O Sistema será desenvolvida em prol da Mendes Beckhauser Advocacia e Consultoria
+<h1> O Sistema será desenvolvida em prol da Mendes Beckhauser Advocacia e Consultoria </h1>  
 
-As funcionalidades do sistema serão: 
+<h2>As funcionalidades do sistema serão: </h2> 
 
-1- Administrar agendas;
-2- Administrar documentos;
-3- Edição de documentos;
-4- Administrar processos;
-5- Administrar/ acompanhar audiências;
-6- Editar processos;
-7- Gerar modelos de contrato de honorários e procurações;
+<ul>
+        <li>Administrar agendas</li>
+        <li>Administrar documentos</li>
+        <li>Edição de documentos</li>
+        <li>Administrar processos</li>
+        <li>Administrar/acompanhar audiências</li>
+        <li>Editar processos</li>
+        <li>Gerar modelos de contrato de honorários e procurações</li>
+    </ul>
