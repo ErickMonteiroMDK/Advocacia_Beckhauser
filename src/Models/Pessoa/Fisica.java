@@ -7,6 +7,8 @@ public class Fisica extends Pessoa {
     private String rg;
     private String profissao;
     private String estadoCivil;
+    private LocalDate dtNasc;
+
 
 
 
@@ -15,9 +17,9 @@ public class Fisica extends Pessoa {
         this.rg = rg;
         super.setNome(nome);
         super.setEmail(email);
-        super.setDtNasc(dtNasc);
         super.setEndereco(endereco);
         this.profissao = profissao;
+        this.dtNasc = dtNasc;
         this.estadoCivil = estadoCivil;
     }
 
@@ -38,6 +40,7 @@ public class Fisica extends Pessoa {
         return estadoCivil;
     }
 
+    public LocalDate getDtNasc() {return dtNasc;}
 
     public void setProfissao(String profissao) {
         this.profissao = profissao;
@@ -46,4 +49,6 @@ public class Fisica extends Pessoa {
     public void setEstadoCivil(String estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
+
+    public void setDtNasc(LocalDate dtNasc) {this.dtNasc = dtNasc;}
 }
