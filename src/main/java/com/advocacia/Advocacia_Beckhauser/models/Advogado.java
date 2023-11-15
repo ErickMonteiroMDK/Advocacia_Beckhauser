@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity(name = "usuario_advogado")
-public class UsuarioAdv extends PessoaFisica{
+public class Advogado extends PessoaFisica{
 
     @Column(name = "oab", nullable = false)
     private String oab;
