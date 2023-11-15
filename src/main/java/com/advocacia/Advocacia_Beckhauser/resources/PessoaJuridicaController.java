@@ -4,12 +4,11 @@ import com.advocacia.Advocacia_Beckhauser.models.PessoaJuridica;
 import com.advocacia.Advocacia_Beckhauser.services.PessoaJuridicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/pessoaJuridica")
@@ -23,5 +22,13 @@ public class PessoaJuridicaController {
         PessoaJuridica save = service.salvar(entity);
         return ResponseEntity.created(URI.create("/api/pessoaJuridica/" + entity.getId())).body(save);
     }
+
+    @GetMapping
+    public ResponseEntity findAll(){
+        List<PessoaJuridica> pessoaJuridica = service.buscaTodos();
+        return ResponseEntity.ok(pessoaJuridica);
+    }
+
+
 
 }
