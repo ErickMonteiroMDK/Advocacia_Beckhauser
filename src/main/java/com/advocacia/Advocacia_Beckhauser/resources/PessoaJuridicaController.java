@@ -34,4 +34,10 @@ public class PessoaJuridicaController {
         PessoaJuridica pessoaJuridica = service.buscaPorId(id);
         return ResponseEntity.ok(pessoaJuridica);}
 
+    @PutMapping("{id}")
+    public  ResponseEntity update(@PathVariable("id") Long id, @RequestBody PessoaJuridica entity) {
+        PessoaJuridica alterado = service.alterar(id, entity);
+        return ResponseEntity.ok().body(alterado);
+    }
+
 }
