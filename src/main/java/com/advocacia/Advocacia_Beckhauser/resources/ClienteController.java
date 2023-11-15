@@ -20,8 +20,4 @@ public class ClienteController {
         Cliente salvar = service.salvar(cliente);
         return ResponseEntity.created(URI.create("/cliente" + cliente.getId())).body(salvar);
     }
-
-
-    @GetMapping("/cliente/{id}")
-    public ResponseEntity 
 }
