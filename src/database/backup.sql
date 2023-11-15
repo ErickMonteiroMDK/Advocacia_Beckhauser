@@ -1,0 +1,1 @@
+CREATE SCHEMA `advocacia_beckhauser`;
