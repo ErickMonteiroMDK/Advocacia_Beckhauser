@@ -41,5 +41,7 @@ public class PessoaJuridicaService {
         }
         return null;}
 
+    public void remover(Long id) { repository.deleteById(id);}
+
 
 }

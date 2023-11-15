@@ -40,4 +40,11 @@ public class PessoaJuridicaController {
         return ResponseEntity.ok().body(alterado);
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity remove(@PathVariable("id") Long id) {
+        service.remover(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
 }
