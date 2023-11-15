@@ -17,5 +17,8 @@ public class PessoaJuridicaService {
 
     public List<PessoaJuridica> buscaTodos() { return  repository.findAll();}
 
+    public PessoaJuridica buscaPorId(Long id) {
+        return repository.findById(id).orElse(null);
+    }
 
 }

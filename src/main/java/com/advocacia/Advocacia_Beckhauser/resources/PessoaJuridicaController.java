@@ -29,6 +29,9 @@ public class PessoaJuridicaController {
         return ResponseEntity.ok(pessoaJuridica);
     }
 
-
+    @GetMapping ("{id}")
+    public ResponseEntity findById(@PathVariable ("id") Long id) {
+        PessoaJuridica pessoaJuridica = service.buscaPorId(id);
+        return ResponseEntity.ok(pessoaJuridica);}
 
 }
