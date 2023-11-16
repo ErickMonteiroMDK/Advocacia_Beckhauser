@@ -4,8 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.io.File;
 
+
+
 @Entity(name = "documento")
-public class Documento {
+public class Documento extends EntityID {
     @Column(nullable = false)
     private String name;
 
