@@ -2,47 +2,54 @@ package com.advocacia.Advocacia_Beckhauser.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import java.io.File;
+import javax.persistence.Lob;
 
-@Entity(name = "documento")
-public class Documento {
+@Entity
+public class Documento extends EntityID {
     @Column(nullable = false)
-    private String name;
-
-    @Column(nullable = false)
-    private String tipo;
+    private String nome;
 
     @Column(nullable = false)
-    private File arquivo;
+    private String nomeArquivoOriginal;
+
+    @Column(nullable = false)
+    private String tipoConteudo;
+
+    @Lob
+    @Column(nullable = false)
+    private byte[] dados;
 
 
-
-    public Documento() {
-
+    
+    public String getNome() {
+        return nome;
     }
 
-
-    public String getName() {
-        return name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getNomeArquivoOriginal() {
+        return nomeArquivoOriginal;
     }
 
-    public String getTipo() {
-        return tipo;
+    public void setNomeArquivoOriginal(String nomeArquivoOriginal) {
+        this.nomeArquivoOriginal = nomeArquivoOriginal;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public String getTipoConteudo() {
+        return tipoConteudo;
     }
 
-    public File getArquivo() {
-        return arquivo;
+    public void setTipoConteudo(String tipoConteudo) {
+        this.tipoConteudo = tipoConteudo;
     }
 
-    public void setArquivo(File arquivo) {
-        this.arquivo = arquivo;
+    public byte[] getDados() {
+        return dados;
+    }
+
+    public void setDados(byte[] dados) {
+        this.dados = dados;
     }
 }
