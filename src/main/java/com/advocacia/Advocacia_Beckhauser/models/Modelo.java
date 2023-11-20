@@ -2,21 +2,17 @@ package com.advocacia.Advocacia_Beckhauser.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import java.io.File;
 
-@Entity(name = "modelo")
-public class Modelo {
+@Entity()
+public class Modelo extends EntityID {
     @Column(nullable = false)
     private String nome;
 
+    @Lob
     @Column(nullable = false)
-    private File arquivo;
-
-
-
-    public Modelo() {
-
-    }
+    private byte[] dados;
 
 
     public String getNome() {
@@ -27,11 +23,11 @@ public class Modelo {
         this.nome = nome;
     }
 
-    public File getArquivo() {
-        return arquivo;
+    public byte[] getDados() {
+        return dados;
     }
 
-    public void setArquivo(File arquivo) {
-        this.arquivo = arquivo;
+    public void setDados(byte[] dados) {
+        this.dados = dados;
     }
 }
