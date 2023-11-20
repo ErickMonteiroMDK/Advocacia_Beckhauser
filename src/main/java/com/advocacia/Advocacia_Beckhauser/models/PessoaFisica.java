@@ -1,8 +1,8 @@
 package com.advocacia.Advocacia_Beckhauser.models;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @MappedSuperclass
 public class PessoaFisica extends Pessoa {
@@ -18,6 +18,13 @@ public class PessoaFisica extends Pessoa {
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
 
+
+
+    /*
+        *Artefato da classe PessoaFisicaDocumento.
+
+    @OneToOne(mappedBy = "pessoaFisica", cascade = CascadeType.ALL, orphanRemoval = true)
+    private PessoaFisicaDocumento documentos;*/
 
 
 
@@ -52,4 +59,14 @@ public class PessoaFisica extends Pessoa {
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+
+
+
+    /*public PessoaFisicaDocumento getDocumentos() {
+        return documentos;
+    }
+
+    public void setDocumentos(PessoaFisicaDocumento documentos) {
+        this.documentos = documentos;
+    }*/
 }
