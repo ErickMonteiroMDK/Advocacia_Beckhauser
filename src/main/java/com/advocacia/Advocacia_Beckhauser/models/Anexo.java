@@ -1,13 +1,17 @@
 package com.advocacia.Advocacia_Beckhauser.models;
 
 import javax.persistence.*;
-import java.io.File;
-import java.util.Arrays;
 
-@Entity()
-public class Modelo extends EntityID {
+@Entity
+public class Anexo extends EntityID {
     @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false)
+    private String nomeArquivoOriginal;
+
+    @Column(nullable = false)
+    private String tipoConteudo;
 
     @Lob
     @Column(nullable = false)
@@ -18,13 +22,29 @@ public class Modelo extends EntityID {
     private Processo processo;
 
 
-
+    
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getNomeArquivoOriginal() {
+        return nomeArquivoOriginal;
+    }
+
+    public void setNomeArquivoOriginal(String nomeArquivoOriginal) {
+        this.nomeArquivoOriginal = nomeArquivoOriginal;
+    }
+
+    public String getTipoConteudo() {
+        return tipoConteudo;
+    }
+
+    public void setTipoConteudo(String tipoConteudo) {
+        this.tipoConteudo = tipoConteudo;
     }
 
     public byte[] getDados() {
@@ -41,14 +61,5 @@ public class Modelo extends EntityID {
 
     public void setProcesso(Processo processo) {
         this.processo = processo;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Modelo{" +
-                "nome='" + nome + '\'' +
-                ", dados=" + Arrays.toString(dados) +
-                '}';
     }
 }
