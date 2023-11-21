@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.File;
 
 @Entity(name = "documento")
-public class Documento extends EntityID {
+public class Documento {
 
     @Column(nullable = false)
     private String name;
