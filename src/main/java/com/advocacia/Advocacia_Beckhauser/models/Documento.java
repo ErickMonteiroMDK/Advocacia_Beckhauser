@@ -1,11 +1,13 @@
 package com.advocacia.Advocacia_Beckhauser.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+
+
+import javax.persistence.*;
 import java.io.File;
 
 @Entity(name = "documento")
-public class Documento {
+public class Documento extends EntityID {
+
     @Column(nullable = false)
     private String name;
 

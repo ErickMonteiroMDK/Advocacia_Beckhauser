@@ -1,5 +1,6 @@
 package com.advocacia.Advocacia_Beckhauser.services;
 
+import com.advocacia.Advocacia_Beckhauser.enterprise.ValidationException;
 import com.advocacia.Advocacia_Beckhauser.models.PessoaJuridica;
 import com.advocacia.Advocacia_Beckhauser.repositories.PessoaJuridicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,18 @@ public class PessoaJuridicaService {
     @Autowired
     private PessoaJuridicaRepository repository;
 
-    public PessoaJuridica salvar(PessoaJuridica entity) { return  repository.save(entity);}
+    public PessoaJuridica salvar(PessoaJuridica entity) {
+
+        if(repository.findByCnpj(entity.getCnpj()) != null) {
+            throw new ValidationException("Este CNPJ já está cadastrado no sistema.");
+        }
+
+        if (repository.findByRazaoSocial(entity.getRazaoSocial()) != null) {
+            throw new ValidationException("Já existe esta razão social cadastrada no sistema. ");
+        }
+
+        return  repository.save(entity);
+    }
 
     public List<PessoaJuridica> buscaTodos() { return  repository.findAll();}
 
