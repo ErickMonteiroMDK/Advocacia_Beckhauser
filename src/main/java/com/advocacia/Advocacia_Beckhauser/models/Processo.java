@@ -5,28 +5,24 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @Entity (name = "processo")
-public class Processo extends EntityID{
-
-
-
+public class Processo extends EntityID {
     @Column (name = "numero_processo")
     private String numero;
 
-    @Column (name = "ataque")
-    private Integer ataque;
 
-    @Column (name = "defesa")
-    private Integer defesa;
+    /*
+    * Como criar uma relação entre Processo & Advogado?
+    * */
+        @Column (name = "ataque")
+        private Integer ataque;
 
-    
-  //  @OneToMany
-  //  @Column (name = "documentos")
-    // private file documentos;
+        @Column (name = "defesa")
+        private Integer defesa;
+    /*
+    * Criando uma classe AtaqueProcesso * DefesaProcesso?
+    * */
 
 
-
-
-    //Getters and Setters:
 
     public String getNumero() {
         return numero;
