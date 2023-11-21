@@ -1,6 +1,5 @@
 package com.advocacia.Advocacia_Beckhauser.resources;
 
-import com.advocacia.Advocacia_Beckhauser.models.Documento;
 import com.advocacia.Advocacia_Beckhauser.models.Modelo;
 import com.advocacia.Advocacia_Beckhauser.services.ModeloService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +27,11 @@ public class ModeloController extends AbstractController {
     @GetMapping("/{id}")
     public ResponseEntity trazerPorId(@PathVariable("id") Long id) {
         return ResponseEntity.ok(service.trazerPorId(id));
+    }
+
+    @GetMapping("/processo/{id}")
+    public ResponseEntity trazerPorProcessoId(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(service.trazerPorProcessoId(id));
     }
 
 
