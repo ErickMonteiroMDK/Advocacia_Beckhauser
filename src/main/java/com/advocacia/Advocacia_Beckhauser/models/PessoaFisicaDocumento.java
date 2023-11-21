@@ -10,7 +10,7 @@ package com.advocacia.Advocacia_Beckhauser.models;
 * Lança "AnnotationException: @OneToOne or @ManyToOne on com.advocacia.Advocacia_Beckhauser.models.PessoaFisicaDocumento.pessoaFisica references an unknown entity: com.advocacia.Advocacia_Beckhauser.models.PessoaFisica"
 *
 * Para usar esta classe, precisamos entender como modificar as MappedSuperClass Pessoa & PessoaFisica.
-* A princípio, usaríamos uma lista de documentos na classe Pessoa, entretanto, para fazer isso, precisamos usar estratégias de Herança ou relacionar diretamente a classe Advogado & Cliente com Documento.
+* A princípio, usaríamos uma lista de documentos na classe Pessoa, entretanto, para fazer isso, precisamos usar estratégias de Herança ou relacionar diretamente a classe Advogado & Cliente com Anexo.
 *
 * Tentei criar uma classe que intermedia esta relação, mas acabei caindo no mesmo erro e retornei à estaca zero.
 * */
@@ -25,7 +25,7 @@ public class PessoaFisicaDocumento extends EntityID {
 
     @ManyToOne
     @JoinColumn(name = "documento_id", referencedColumnName = "id")
-    private Documento documento;
+    private Anexo documento;
 
 
 
@@ -37,11 +37,11 @@ public class PessoaFisicaDocumento extends EntityID {
         this.pessoaFisica = pessoaFisica;
     }
 
-    public Documento getDocumento() {
+    public Anexo getDocumento() {
         return documento;
     }
 
-    public void setDocumento(Documento documento) {
+    public void setDocumento(Anexo documento) {
         this.documento = documento;
     }*/
 }

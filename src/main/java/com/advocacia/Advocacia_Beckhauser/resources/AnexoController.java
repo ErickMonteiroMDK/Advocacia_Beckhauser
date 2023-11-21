@@ -1,7 +1,7 @@
 package com.advocacia.Advocacia_Beckhauser.resources;
 
-import com.advocacia.Advocacia_Beckhauser.models.Documento;
-import com.advocacia.Advocacia_Beckhauser.services.DocumentoService;
+import com.advocacia.Advocacia_Beckhauser.models.Anexo;
+import com.advocacia.Advocacia_Beckhauser.services.AnexoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,10 +10,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/api/documentos")
-public class DocumentoController extends AbstractController {
+@RequestMapping("/api/anexos")
+public class AnexoController extends AbstractController {
     @Autowired
-    private DocumentoService service;
+    private AnexoService service;
 
 
 
@@ -27,15 +27,20 @@ public class DocumentoController extends AbstractController {
         return ResponseEntity.ok(service.trazerPorId(id));
     }
 
+    @GetMapping("/processo/{id}")
+    public ResponseEntity trazerPorProcessoId(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(service.trazerPorProcessoId(id));
+    }
+
 
     @PostMapping
-    public ResponseEntity salvar(@RequestParam("arquivo") MultipartFile arquivo, @ModelAttribute Documento documento) {
-        return ResponseEntity.created(URI.create("/api/documento/" + documento.getId())).body(service.salvar(arquivo, documento));
+    public ResponseEntity salvar(@RequestParam("arquivo") MultipartFile arquivo, @ModelAttribute Anexo anexo) {
+        return ResponseEntity.created(URI.create("/api/anexo/" + anexo.getId())).body(service.salvar(arquivo, anexo));
     }
 
 
     @PutMapping("/{id}")
-    public ResponseEntity alterar(@PathVariable("id") Long id, @RequestParam(value = "file", required = false) MultipartFile novoArquivo, @RequestBody Documento alterado) {
+    public ResponseEntity alterar(@PathVariable("id") Long id, @RequestParam(value = "file", required = false) MultipartFile novoArquivo, @RequestBody Anexo alterado) {
         return ResponseEntity.ok().body(service.alterar(id, novoArquivo, alterado));
     }
 

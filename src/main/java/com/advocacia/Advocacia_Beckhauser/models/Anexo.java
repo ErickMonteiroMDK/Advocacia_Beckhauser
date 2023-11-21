@@ -1,11 +1,9 @@
 package com.advocacia.Advocacia_Beckhauser.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Lob;
+import javax.persistence.*;
 
 @Entity
-public class Documento extends EntityID {
+public class Anexo extends EntityID {
     @Column(nullable = false)
     private String nome;
 
@@ -18,6 +16,10 @@ public class Documento extends EntityID {
     @Lob
     @Column(nullable = false)
     private byte[] dados;
+
+    @ManyToOne
+    @JoinColumn(name = "processo_id", referencedColumnName = "id")
+    private Processo processo;
 
 
     
@@ -51,5 +53,13 @@ public class Documento extends EntityID {
 
     public void setDados(byte[] dados) {
         this.dados = dados;
+    }
+
+    public Processo getProcesso() {
+        return processo;
+    }
+
+    public void setProcesso(Processo processo) {
+        this.processo = processo;
     }
 }
