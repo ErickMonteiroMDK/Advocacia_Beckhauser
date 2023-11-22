@@ -6,4 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PessoaJuridicaRepository extends JpaRepository<PessoaJuridica, Long> {
 
+    public PessoaJuridica findByCnpj (String Cnpj);
+
+    public PessoaJuridica findByRazaoSocial (String RazaoSocial);
+
+
 }

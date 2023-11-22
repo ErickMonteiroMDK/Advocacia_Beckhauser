@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/pessoaJuridica")
-public class PessoaJuridicaController {
+public class PessoaJuridicaController extends AbstractController{
 
     @Autowired
     private PessoaJuridicaService service;
