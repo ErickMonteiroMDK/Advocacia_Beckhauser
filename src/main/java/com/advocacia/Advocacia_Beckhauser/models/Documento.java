@@ -5,9 +5,10 @@ package com.advocacia.Advocacia_Beckhauser.models;
 import javax.persistence.*;
 import java.io.File;
 
-@Entity(name = "documento")
-public class Documento {
 
+
+@Entity(name = "documento")
+public class Documento extends EntityID {
     @Column(nullable = false)
     private String name;
 
