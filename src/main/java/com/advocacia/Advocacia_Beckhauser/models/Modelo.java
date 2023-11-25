@@ -1,22 +1,26 @@
 package com.advocacia.Advocacia_Beckhauser.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import java.io.File;
+import javax.persistence.*;
 
-@Entity(name = "modelo")
+@Entity
 public class Modelo extends EntityID {
     @Column(nullable = false)
     private String nome;
 
     @Column(nullable = false)
-    private File arquivo;
+    private String nomeArquivoOriginal;
 
+    @Column(nullable = false)
+    private String tipoConteudo;
 
+    @Lob
+    @Column(nullable = false)
+    private byte[] dados;
 
-    public Modelo() {
+    @ManyToOne
+    @JoinColumn(name = "processo_id", referencedColumnName = "id")
+    private Processo processo;
 
-    }
 
 
     public String getNome() {
@@ -27,11 +31,35 @@ public class Modelo extends EntityID {
         this.nome = nome;
     }
 
-    public File getArquivo() {
-        return arquivo;
+    public String getNomeArquivoOriginal() {
+        return nomeArquivoOriginal;
     }
 
-    public void setArquivo(File arquivo) {
-        this.arquivo = arquivo;
+    public void setNomeArquivoOriginal(String nomeArquivoOriginal) {
+        this.nomeArquivoOriginal = nomeArquivoOriginal;
+    }
+
+    public String getTipoConteudo() {
+        return tipoConteudo;
+    }
+
+    public void setTipoConteudo(String tipoConteudo) {
+        this.tipoConteudo = tipoConteudo;
+    }
+
+    public byte[] getDados() {
+        return dados;
+    }
+
+    public void setDados(byte[] dados) {
+        this.dados = dados;
+    }
+
+    public Processo getProcesso() {
+        return processo;
+    }
+
+    public void setProcesso(Processo processo) {
+        this.processo = processo;
     }
 }

@@ -28,6 +28,9 @@ public class ModeloService {
     public Modelo salvar(MultipartFile arquivo, Modelo modelo) {
         try {
             modelo.setDados(arquivo.getBytes());
+            modelo.setNomeArquivoOriginal(arquivo.getOriginalFilename());
+            modelo.setTipoConteudo(arquivo.getContentType());
+
 
             if(processoRepository.findById(modelo.getProcesso().getId()) == null) {
                 throw new ValidationException("Processo inexistente!");
