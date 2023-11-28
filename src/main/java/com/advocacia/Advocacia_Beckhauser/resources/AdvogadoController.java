@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/advogado")
-public class AdvogadoController {
+public class AdvogadoController extends AbstractController {
     @Autowired
     AdvogadoService service;
 

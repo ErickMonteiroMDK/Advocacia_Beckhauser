@@ -1,26 +1,19 @@
 package com.advocacia.Advocacia_Beckhauser.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
-@Entity (name = "processo")
+@Entity
 public class Processo extends EntityID {
     @Column (name = "numero_processo")
     private String numero;
 
+    @ManyToOne
+    @JoinColumn(name = "advogado_defesa_id", referencedColumnName = "id")
+    private Advogado defesa;
 
-    /*
-    * Como criar uma relação entre Processo & Advogado?
-    * */
-        @Column (name = "ataque")
-        private Integer ataque;
-
-        @Column (name = "defesa")
-        private Integer defesa;
-    /*
-    * Criando uma classe AtaqueProcesso * DefesaProcesso?
-    * */
+    @ManyToOne
+    @JoinColumn(name = "advogado_ataque_id", referencedColumnName = "id")
+    private Advogado ataque;
 
 
 
@@ -32,20 +25,20 @@ public class Processo extends EntityID {
         this.numero = numero;
     }
 
-    public Integer getAtaque() {
-        return ataque;
-    }
-
-    public void setAtaque(Integer ataque) {
-        this.ataque = ataque;
-    }
-
-    public Integer getDefesa() {
+    public Advogado getDefesa() {
         return defesa;
     }
 
-    public void setDefesa(Integer defesa) {
+    public void setDefesa(Advogado defesa) {
         this.defesa = defesa;
+    }
+
+    public Advogado getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(Advogado ataque) {
+        this.ataque = ataque;
     }
 
 
@@ -53,8 +46,8 @@ public class Processo extends EntityID {
     public String toString() {
         return "Processo{" +
                 "numero='" + numero + '\'' +
-                ", ataque=" + ataque +
                 ", defesa=" + defesa +
+                ", ataque=" + ataque +
                 '}';
     }
 }

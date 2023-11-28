@@ -4,41 +4,47 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-@Entity(name = "agenda")
+@Entity
 public class Agenda extends EntityID 
 {
-    
     @Column(name = "dataOcorrencia", nullable = false)
     private LocalDate dataOcorrencia;
 
-    @Column(name = "responsaveis", nullable = false)
-    private Integer responsaveis;
 
-    @Column(name = "numeroProcesso", nullable = false)
-    private String numeroProcesso;
+    @ManyToOne
+    @JoinColumn(name = "advogado_responsavel_id", referencedColumnName = "id")
+    private Advogado responsavel;
 
-    @Column(name = "situacao", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "processo_id", referencedColumnName = "id")
+    private Processo numeroProcesso;
+
+
+    @Column(nullable = false)
     private String situacao;
 
-    @Column(name = "fase", nullable = false)
+    @Column(nullable = false)
     private String fase;
 
-    @Column(name = "local", nullable = false)
+    @Column(nullable = false)
     private String local;
 
-    @Column(name = "tipoPrazo", nullable = false)
+    @Column(nullable = false)
     private String tipoPrazo;
 
-    @Column(name = "dataInicial", nullable = false)
+    @Column(nullable = false)
     private LocalDate dataInicial;
     
-    @Column(name = "prazo", nullable = false)
+    @Column(nullable = false)
     private Integer prazo;
 
-    @Column(name = "dataFatal", nullable = false)
+    @Column(nullable = false)
     private LocalDate dataFatal;
     
+
 
     public LocalDate getDataOcorrencia() {
         return this.dataOcorrencia;
@@ -48,21 +54,23 @@ public class Agenda extends EntityID
         this.dataOcorrencia = dataOcorrencia;
     }
 
-    public Integer getResponsaveis() {
-        return this.responsaveis;
+
+    public Advogado getResponsavel() {
+        return responsavel;
     }
 
-    public void setResponsaveis(Integer responsaveis) {
-        this.responsaveis = responsaveis;
+    public void setResponsavel(Advogado responsavel) {
+        this.responsavel = responsavel;
     }
 
-    public String getNumeroProcesso() {
-        return this.numeroProcesso;
+    public Processo getNumeroProcesso() {
+        return numeroProcesso;
     }
 
-    public void setNumeroProcesso(String numeroProcesso) {
+    public void setNumeroProcesso(Processo numeroProcesso) {
         this.numeroProcesso = numeroProcesso;
     }
+
 
     public String getSituacao() {
         return this.situacao;
@@ -120,10 +128,20 @@ public class Agenda extends EntityID
         this.dataFatal = dataFatal;
     }
 
+
+    @Override
+    public String toString() {
+        return "Agenda{" +
+                "dataOcorrencia=" + dataOcorrencia +
+                ", responsavel=" + responsavel +
+                ", numeroProcesso=" + numeroProcesso +
+                ", situacao='" + situacao + '\'' +
+                ", fase='" + fase + '\'' +
+                ", local='" + local + '\'' +
+                ", tipoPrazo='" + tipoPrazo + '\'' +
+                ", dataInicial=" + dataInicial +
+                ", prazo=" + prazo +
+                ", dataFatal=" + dataFatal +
+                '}';
+    }
 }
-
-
-
-
-
-
