@@ -20,14 +20,6 @@ public class PessoaFisica extends Pessoa {
 
 
 
-    /*
-        *Artefato da classe PessoaFisicaDocumento.
-
-    @OneToOne(mappedBy = "pessoaFisica", cascade = CascadeType.ALL, orphanRemoval = true)
-    private PessoaFisicaDocumento documentos;*/
-
-
-
     public String getCpf() {
         return cpf;
     }
@@ -59,14 +51,4 @@ public class PessoaFisica extends Pessoa {
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-
-
-
-    /*public PessoaFisicaDocumento getDocumentos() {
-        return documentos;
-    }
-
-    public void setDocumentos(PessoaFisicaDocumento documentos) {
-        this.documentos = documentos;
-    }*/
 }
