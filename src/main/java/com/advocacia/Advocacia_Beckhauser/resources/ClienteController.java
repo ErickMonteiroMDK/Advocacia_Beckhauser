@@ -10,11 +10,12 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/cliente")
+@RequestMapping("/api/clientes")
 public class ClienteController extends AbstractController {
-
     @Autowired
     private ClienteService service;
+
+
 
     @PostMapping
     public ResponseEntity salvarCliente(@RequestBody Cliente cliente){
