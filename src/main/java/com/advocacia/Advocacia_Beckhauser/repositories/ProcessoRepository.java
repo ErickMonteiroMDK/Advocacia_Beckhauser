@@ -8,8 +8,5 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Repository
 public interface ProcessoRepository extends JpaRepository<Processo, Long>{
-
-    // public Processo findByNumero (String numero);
-
-
+    public Processo findByNumero (String numero);
 }
