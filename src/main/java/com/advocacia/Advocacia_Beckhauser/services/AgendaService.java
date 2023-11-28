@@ -12,10 +12,13 @@ public class AgendaService
     @Autowired
     private AgendaRepository repository;
 
+
+
     public Agenda salvarAgenda(Agenda agenda) 
     {
         return repository.save(agenda);
     }
+
 
     public List<Agenda> trazerTodasAgendas() 
     {
@@ -27,10 +30,12 @@ public class AgendaService
         return repository.findById(id).orElse(null);
     }
 
+
     public void removerAgenda(Long id)
     {
         repository.deleteById(id);
     }
+
 
     public Agenda alterarAgenda(Long id, Agenda novaAgenda) 
     {
@@ -41,7 +46,7 @@ public class AgendaService
             Agenda agenda = porId.get();
 
             agenda.setDataOcorrencia(novaAgenda.getDataOcorrencia());
-            agenda.setResponsaveis(novaAgenda.getResponsaveis());
+            agenda.setResponsavel(novaAgenda.getResponsavel());
             agenda.setNumeroProcesso(novaAgenda.getNumeroProcesso());
             agenda.setSituacao(novaAgenda.getSituacao());
             agenda.setFase(novaAgenda.getFase());
