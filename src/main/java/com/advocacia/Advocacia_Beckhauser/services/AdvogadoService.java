@@ -1,5 +1,6 @@
 package com.advocacia.Advocacia_Beckhauser.services;
 
+import com.advocacia.Advocacia_Beckhauser.enterprise.ValidationException;
 import com.advocacia.Advocacia_Beckhauser.models.Advogado;
 import com.advocacia.Advocacia_Beckhauser.repositories.AdvogadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,17 @@ public class AdvogadoService {
     @Autowired
     private AdvogadoRepository repository;
 
-    public Advogado salvar(Advogado advogado) {return repository.save(advogado);}
+    public Advogado salvar(Advogado entity) {
+        if (repository.findByCpf(entity.getCpf()) != null) {
+            throw new ValidationException("Este CPF já está cadastrado!!!");
+        }
+
+        if (repository.findByOab(entity.getOab()) != null) {
+            throw new ValidationException("Esta OAB já está cadastrada!!!");
+        }
+
+        return repository.save(entity);
+    }
 
     public List<Advogado> trazerTodos() { return repository.findAll(); }
 
@@ -40,5 +51,7 @@ public class AdvogadoService {
             return repository.save(advogado);
         }
         return null;
+
+
     }
 }
